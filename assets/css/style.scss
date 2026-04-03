@@ -23,15 +23,19 @@
   flex-direction: row;
 }
 
-/* 确保导航链接在左侧 */
 .nav-item {
   margin-right: 1rem;
 }
 
-/* 刷新按钮在右侧 */
 .refresh-btn {
   margin-left: auto !important;
   margin-right: 0 !important;
+}
+
+/* 确保主题切换按钮显示 */
+#theme-switch {
+  display: flex !important;
+  align-items: center;
 }
 
 @media (max-width: 767px) {
