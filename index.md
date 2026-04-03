@@ -21,7 +21,7 @@ permalink: /
     <style>
       .custom-theme-toggle {
         position: fixed;
-        bottom: 80px;
+        top: 80px;
         left: 20px;
         z-index: 9999;
       }
