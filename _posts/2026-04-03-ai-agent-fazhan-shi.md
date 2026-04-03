@@ -1,7 +1,7 @@
 ---
 title: "AI Agent 发展史：从科幻概念到智能助手"
 date: 2026-04-03 08:00:00 +0800
-author: latte233
+author: latte
 categories: [AI]
 tags: [AI Agent, 人工智能, 大模型, LLM, Agent]
 toc: true
