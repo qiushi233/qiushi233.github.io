@@ -24,7 +24,7 @@ avatar: ""
 # 首页小传（可自定义）
 # 显示在侧边栏头像下方
 
-theme_mode: # [light | dark]，留空则跟随系统
+theme_mode: dark
 
 cdn: ""
 
