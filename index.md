@@ -5,6 +5,10 @@ description: 所有博客文章的索引目录
 permalink: /
 ---
 
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
 <script>
 /* 强制刷新按钮 */
 (function() {

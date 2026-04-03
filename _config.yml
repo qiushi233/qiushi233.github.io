@@ -21,9 +21,6 @@ social:
 
 avatar: ""
 
-# 首页小传（可自定义）
-# 显示在侧边栏头像下方
-
 theme_mode: dark
 
 cdn: ""
@@ -41,6 +38,9 @@ pwa:
   enabled: false
 
 paginate: 10
+
+# 版本号（每次更新+1，用于强制刷新缓存）
+build: 2026040306
 
 # ------------ 以下为 Jekyll 基础配置 ------------
 permalink: /posts/:title/
