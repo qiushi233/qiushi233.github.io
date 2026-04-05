@@ -5,21 +5,7 @@
     if (document.getElementById('avatar-theme-btn')) return;
 
     var avatar = document.getElementById('avatar');
-    var profileWrapper = document.querySelector('.profile-wrapper');
-    if (!avatar || !profileWrapper) return;
-
-    // 让 profile-wrapper 作为定位父元素（它的 overflow 是 visible）
-    profileWrapper.style.setProperty('position', 'relative', 'important');
-
-    // 计算 avatar 相对于 profile-wrapper 的偏移，把按钮放到头像左上角外侧
-    function positionBtn(btn) {
-      var pwRect = profileWrapper.getBoundingClientRect();
-      var avRect = avatar.getBoundingClientRect();
-      var relLeft = avRect.left - pwRect.left;
-      var relTop  = avRect.top  - pwRect.top;
-      btn.style.left = (relLeft - 10) + 'px';
-      btn.style.top  = (relTop  - 10) + 'px';
-    }
+    if (!avatar) return;
 
     // 判断当前是否深色模式
     function isDark() {
@@ -31,9 +17,17 @@
     btn.id = 'avatar-theme-btn';
     btn.title = '切换主题';
     btn.type = 'button';
+
+    // 用 position: fixed，根据头像的实际视口坐标定位，绕过 overflow 和 transform 问题
+    function positionBtn() {
+      var r = avatar.getBoundingClientRect();
+      btn.style.top    = (r.top  - 10) + 'px';
+      btn.style.left   = (r.left - 10) + 'px';
+    }
+
     btn.style.cssText = [
-      'position: absolute',
-      'z-index: 9999',
+      'position: fixed',
+      'z-index: 99999',
       'width: 28px',
       'height: 28px',
       'border-radius: 50%',
@@ -47,13 +41,15 @@
       'justify-content: center',
       'padding: 0',
       'margin: 0',
-      'box-shadow: 0 1px 4px rgba(0,0,0,0.4)'
+      'box-shadow: 0 1px 4px rgba(0,0,0,0.4)',
+      'transition: opacity 0.2s'
     ].join(';');
 
     function updateIcon() {
       btn.innerHTML = isDark() ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     }
     updateIcon();
+    positionBtn();
 
     btn.addEventListener('click', function (e) {
       e.preventDefault();
@@ -70,11 +66,11 @@
       attributeFilter: ['data-mode']
     });
 
-    profileWrapper.appendChild(btn);
-    positionBtn(btn);
+    // resize 时重新定位
+    window.addEventListener('resize', positionBtn);
 
-    // 窗口 resize 时重新定位
-    window.addEventListener('resize', function () { positionBtn(btn); });
+    // 挂到 body，fixed 定位不受父元素影响
+    document.body.appendChild(btn);
 
     // 隐藏底部原始按钮
     var orig = document.getElementById('mode-toggle');
@@ -90,10 +86,10 @@
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
-      setTimeout(addAvatarThemeBtn, 200);
+      setTimeout(addAvatarThemeBtn, 300);
     });
   } else {
-    setTimeout(addAvatarThemeBtn, 200);
+    setTimeout(addAvatarThemeBtn, 300);
   }
 })();
 </script>
