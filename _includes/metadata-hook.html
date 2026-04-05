@@ -4,7 +4,8 @@
   function addAvatarThemeBtn() {
     if (document.getElementById('avatar-theme-btn')) return;
 
-    var profileWrapper = document.querySelector('.profile-wrapper');
+    // 挂载到 #avatar 上，使 absolute 定位相对于头像图片
+    var profileWrapper = document.getElementById('avatar');
     if (!profileWrapper) return;
 
     // 判断当前是否深色模式
@@ -41,7 +42,6 @@
       attributeFilter: ['data-mode']
     });
 
-    profileWrapper.style.position = 'relative';
     profileWrapper.appendChild(btn);
 
     // 用 JS 隐藏原始底部按钮（CSS 优先级不足时的备用方案）
