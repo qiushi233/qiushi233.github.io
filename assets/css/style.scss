@@ -35,10 +35,9 @@
   margin-right: 0 !important;
 }
 
-/* 确保主题切换按钮显示 */
-#theme-switch {
-  display: flex !important;
-  align-items: center;
+/* 隐藏侧边栏中的主题切换按钮（月亮图标），保留顶栏的即可） */
+#sidebar #mode-toggle-wrapper {
+  display: none !important;
 }
 
 @media (max-width: 767px) {
