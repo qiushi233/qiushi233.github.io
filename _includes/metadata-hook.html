@@ -21,6 +21,27 @@
     btn.id = 'avatar-theme-btn';
     btn.title = '切换主题';
     btn.type = 'button';
+    // 直接用 JS 设置所有样式，不依赖 CSS 文件
+    btn.style.cssText = [
+      'position: absolute',
+      'top: 2px',
+      'left: 2px',
+      'z-index: 9999',
+      'width: 28px',
+      'height: 28px',
+      'border-radius: 50%',
+      'border: none',
+      'background: rgba(40,40,60,0.75)',
+      'color: #fff',
+      'font-size: 13px',
+      'cursor: pointer',
+      'display: flex',
+      'align-items: center',
+      'justify-content: center',
+      'padding: 0',
+      'margin: 0',
+      'box-shadow: 0 1px 4px rgba(0,0,0,0.4)'
+    ].join(';');
 
     function updateIcon() {
       btn.innerHTML = isDark() ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
