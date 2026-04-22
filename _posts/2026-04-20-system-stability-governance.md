@@ -5,6 +5,7 @@ author: latte
 categories: [架构设计]
 tags: [稳定性, SRE, 分布式系统, 架构治理, 故障管理]
 toc: true
+published: false
 ---
 
 ## 前言
